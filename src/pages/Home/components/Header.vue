@@ -2,20 +2,22 @@
   <div class="header">
     <div class="header-left"><div class="iconfont back-icon">&#xe624;</div></div>
     <div class="header-input"><span class="iconfont">&#xe632;</span>输入城市/景点/游玩主题</div>
-    <div class="header-right">城市<span class="iconfont arrow-icon">&#xe605;</span></div>
+    <div class="header-right">{{this.city}}<span class="iconfont arrow-icon">&#xe605;</span></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    city: String
+  }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
-  /*@import "../../../assets/styles/variables.styl"*/
-  /*@import "~@/assets/styles/variables.styl"*/
   @import "~styles/variables.styl"
   .header
     display flex
