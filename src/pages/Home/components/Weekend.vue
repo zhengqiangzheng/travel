@@ -21,12 +21,12 @@
   </div>
 </template>
 <script>
-  export default {
-    name: 'HomeWeekend',
-    props: {
-      list: Array
-    }
+export default {
+  name: 'HomeWeekend',
+  props: {
+    list: Array
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

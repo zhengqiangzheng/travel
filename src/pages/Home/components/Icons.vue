@@ -14,33 +14,33 @@
   </div>
 </template>
 <script>
-  export default {
-    name: 'HomeIcons',
-    props: {
-      list: Array
-    },
-    data () {
-      return {
-        swiperOption: {
-          autoplay: false
-        }
+export default {
+  name: 'HomeIcons',
+  props: {
+    list: Array
+  },
+  data () {
+    return {
+      swiperOption: {
+        autoplay: false
       }
-    },
-    computed: {
-      pages () {
-        const pages = []
-        this.list.forEach((item, index) => {
-          const page = Math.floor(index / 8)
-          if (!pages[page]) {
-            pages[page] = []
-          }
-          pages[page].push(item)
-        })
-        return pages
-      }
-
     }
+  },
+  computed: {
+    pages () {
+      const pages = []
+      this.list.forEach((item, index) => {
+        const page = Math.floor(index / 8)
+        if (!pages[page]) {
+          pages[page] = []
+        }
+        pages[page].push(item)
+      })
+      return pages
+    }
+
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
