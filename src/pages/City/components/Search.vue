@@ -5,7 +5,9 @@
   </div>
   <div class="search-content" v-show="keyword" ref="search">
     <ul>
-      <li  class="search-item border-bottom" v-for="item of list" :key="item.id">
+      <li  class="search-item border-bottom" v-for="item of list" :key="item.id"
+           @click="handleCityClick(item.name)"
+      >
           {{item.name}}
       </li>
       <li  class="search-item border-bottom" v-show="hasNoData">
@@ -19,11 +21,16 @@
 
 <script>
   import Bscroll from 'better-scroll'
+  import {mapState,mapActions} from 'vuex'
+
 
   export default {
     name: "CitySearch",
     props : {
       cities: Object,
+    },
+    computed : {
+      ...mapState(['city'])
     },
     data () {
       return {
@@ -50,6 +57,14 @@
           this.list = result
         }, 100)
       }
+    },
+    methods :{
+      handleCityClick (city) {
+        // this.$store.dispatch('changeCity',city)
+        this.changeCity(city)
+        this.$router.push('/')
+      },
+      ...mapActions(['changeCity'])
     },
     computed : {
       hasNoData () {
