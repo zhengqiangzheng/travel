@@ -3,8 +3,8 @@
     <div class="wrapper">
       <swiper :options="swiperOption">
         <!-- slides -->
-        <swiper-slide v-for="item of imgs" :key="item.id">
-          <img :src="item.image" class="gallary-img">
+        <swiper-slide v-for="(item,index ) of imgs" :key="index">
+          <img :src="item" class="gallary-img">
         </swiper-slide>
         <!-- Optional controls -->
         <div class="swiper-pagination" slot="pagination">
@@ -18,7 +18,12 @@
   export default {
     name: 'CommonGallary',
     props: {
-      imgs: Array
+      imgs: {
+        type :Array,
+        default () {
+          return []
+        }
+      }
     },
     data () {
       return {
